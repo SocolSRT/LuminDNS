@@ -5,3 +5,8 @@ A simple DNS server script that works on the basis of other servers, remove regi
 
 In private mode, you can restrict access by IP (dnsw.py)
 > WHITELIST - IP addresses that can connect to the dns server
+
+Download the file to a location of your choice and run it in the background
+```
+python3 dns.py &
+```
