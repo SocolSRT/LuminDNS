@@ -1,2 +1,7 @@
 # QuickDNS
-This Python script enables you to create a DNS server with bottom servers that you can configure to your preferences.
+A simple DNS server script that works on the basis of other servers, remove regional restrictions from yourself or make dns with your IP
+> DNS_SERVERS - list of DNS servers that the script will access <br>
+> DNS_TIMEOUT - Waiting time for a response from the DNS server
+
+In private mode, you can restrict access by IP (dnsw.py)
+> WHITELIST - IP addresses that can connect to the dns server
