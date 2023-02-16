@@ -2,7 +2,7 @@ import socket
 import struct
 import time
 import select
-DNS_SERVERS = ['208.67.222.222','1.1.1.1','8.8.8.8','8.26.56.26','9.9.9.9','77.88.8.8','94.140.14.14','185.228.168.168','213.186.33.99','77.109.138.55','194.54.80.31']
+DNS_SERVERS = ['208.67.222.222','1.1.1.1','8.8.8.8','8.26.56.26','9.9.9.9','77.88.8.8','94.140.14.14','185.228.168.168','213.186.33.99']
 DNS_TIMEOUT = 0.1
 server_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 server_socket.bind(('', 53))
