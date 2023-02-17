@@ -10,3 +10,7 @@ Download the file to a location of your choice and run it in the background
 ```
 python3 dns.py &
 ```
+
+# Would you like to support me financially?
+* My Bitcoin wallet - *14AA4FAdUYnTVTx5pSQjq2h8UJoA8Na89R*
+* My Litecoin wallet - *MSevKqUirTvQTkGxYechhNmBgAtDiZJq2x*
