@@ -1,4 +1,4 @@
-# QuickDNS
+# LuminDNS
 A simple DNS server script that works on the basis of other servers, remove regional restrictions from yourself or make dns with your IP
 > DNS_SERVERS - list of DNS servers that the script will access <br>
 > DNS_TIMEOUT - Waiting time for a response from the DNS server
