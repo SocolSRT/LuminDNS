@@ -29,7 +29,7 @@ LuminDNS can be customized to fit your requirements:
 - Cache Expiration: Modify the cache expiration settings in the caches.set_config() section to determine how long DNS responses are retained in the cache.
 - Packet Size Limit: You can set a limit for the size of DNS packets that LuminDNS will handle by modifying the PACKET_SIZE_LIMIT variable.
 
-# OLD Old Version
+# Old Version
 > DNS_SERVERS - list of DNS servers that the script will access <br>
 > DNS_TIMEOUT - Waiting time for a response from the DNS server
 
