@@ -17,7 +17,7 @@ Configure DNS Servers: Open the dns5.py file and locate the DNS_SERVERS list. Ad
 
 Run the Script: In the terminal, execute the following command to start the LuminDNS server:
 
-    python dns5.py
+    python dns6.py
 
 Point Clients to LuminDNS: Configure your devices or network settings to use the IP address of the machine running LuminDNS as the preferred DNS server. This will direct DNS queries to your LuminDNS instance.
 
