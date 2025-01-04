@@ -41,10 +41,11 @@ def resolve_with_servers(data, servers):
     responses = {}
     sockets = {}
     try:
+        # Создание сокетов для каждого сервера
         for server in servers:
             sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
             sock.setblocking(False)
-            sock.sendto(data, (server, 53))
+            sock.sendto(data, (server, 53))  # Отправка запроса на DNS сервер
             selector.register(sock, selectors.EVENT_READ, server)
             sockets[server] = sock
 
@@ -56,17 +57,46 @@ def resolve_with_servers(data, servers):
                 server = key.data
                 try:
                     response, _ = sock.recvfrom(1024)
-                    if response[:2] == data[:2]:  # Проверяем, совпадает ли ID запроса
-                        return response
+                    
+                    # Проверка, что ответ соответствует запросу (ID)
+                    if response[:2] == data[:2]:  
+                        # Проверка минимальной длины ответа (12 байтов - базовый размер DNS-запроса/ответа)
+                        if len(response) > 12:
+                            # Дополнительные проверки, например, на правильность формата DNS-ответа
+                            # Проверим наличие записей в ответе (например, для A-записей)
+                            answer_count = struct.unpack('!H', response[6:8])[0]
+                            if answer_count > 0:
+                                return response
+                            else:
+                                print(f"Ответ от {server} не содержит записей")
+                        else:
+                            print(f"Некорректный ответ от {server}: данные слишком короткие")
                     else:
-                        print(f"Некорректный ответ от {server}")
+                        print(f"Ответ от {server} не совпадает с запросом: {response[:2]} != {data[:2]}")
+                
+                except socket.timeout:
+                    print(f"Тайм-аут при ожидании ответа от {server}")
+                    continue
                 except socket.error as e:
                     print(f"Ошибка сокета от {server}: {e}")
                     continue
+                except Exception as e:
+                    print(f"Неизвестная ошибка при обработке ответа от {server}: {e}")
+                    continue
+
+    except Exception as e:
+        print(f"Ошибка при запросе к серверам: {e}")
+    
     finally:
+        # Закрытие всех сокетов
         for sock in sockets.values():
-            selector.unregister(sock)
-            sock.close()
+            try:
+                selector.unregister(sock)
+                sock.close()
+            except socket.error as e:
+                print(f"Ошибка при закрытии сокета: {e}")
+
+    print("Не удалось получить корректный ответ от серверов.")
     return None
 
 # Обработка входящего DNS-запроса
