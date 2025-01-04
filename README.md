@@ -5,10 +5,6 @@ LuminDNS is a Python script designed to provide a lightweight and efficient DNS 
 
 Follow these steps to set up and run LuminDNS:
 
-Install Dependencies: Make sure you have Python installed on your system. You also need to install the required dependencies. Run the following command to install them:
-
-    pip install aiocache dnspython async_dns
-
 Clone the Repository: Clone the LuminDNS repository to your local machine.
 
 Navigate to the Repository: Use the terminal to navigate to the cloned repository's directory.
