@@ -9,7 +9,7 @@ Clone the Repository: Clone the LuminDNS repository to your local machine.
 
 Navigate to the Repository: Use the terminal to navigate to the cloned repository's directory.
 
-Configure DNS Servers: Open the dns5.py file and locate the DNS_SERVERS list. Add or modify the IP addresses of DNS servers you want LuminDNS to forward queries to.
+Configure DNS Servers: Open the dns7.py file and locate the DNS_SERVERS list. Add or modify the IP addresses of DNS servers you want LuminDNS to forward queries to.
 
 Run the Script: In the terminal, execute the following command to start the LuminDNS server:
 
